@@ -1,4 +1,4 @@
-# Solar Energy Monitor
+# Solar Energy Monitor (PVOutput + Sense Solar)
 
 A Raspberry Pi display that shows real-time and daily solar production statistics on a Waveshare 7.5" HD 3-color e-ink screen.
 
