@@ -6,6 +6,8 @@ Data is pulled from two sources: **PVOutput** (inverter generation history) and 
 
 ---
 
+![description](https://github.com/bytemaster0/PVSense-EnergyMonitorPi/blob/main/sampleImage.jpg)
+
 ## Display layout
 
 ```
