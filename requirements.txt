@@ -1,0 +1,5 @@
+requests>=2.31.0
+Pillow>=10.0.0
+websocket-client>=1.6.0
+RPi.GPIO>=0.7.1
+spidev>=3.6

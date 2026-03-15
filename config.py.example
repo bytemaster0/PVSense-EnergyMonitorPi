@@ -1,0 +1,36 @@
+# config.py — copy this to config.py and fill in your own values
+
+import sys
+sys.path.insert(0, "/home/pi/e-Paper/RaspberryPi_JetsonNano/python/lib")
+
+# ── PVOutput ──────────────────────────────────────────────────────────────────
+# API key and system ID from https://pvoutput.org → Settings → API Settings
+PVOUTPUT_API_KEY   = "your_api_key_here"
+PVOUTPUT_SYSTEM_ID = "12345"          # numeric string, e.g. "83702"
+
+# ── Sense Energy ──────────────────────────────────────────────────────────────
+SENSE_EMAIL    = "you@example.com"
+SENSE_PASSWORD = "your_sense_password"
+
+# ── Display ───────────────────────────────────────────────────────────────────
+# Waveshare 7.5" HD 3-colour (B) — physical resolution
+DISPLAY_WIDTH  = 880
+DISPLAY_HEIGHT = 528
+
+# Fonts — DejaVu ships with Raspberry Pi OS; adjust path if needed
+FONT_PATH_REGULAR = "/usr/share/fonts/truetype/dejavu/DejaVuSans.ttf"
+FONT_PATH_BOLD    = "/usr/share/fonts/truetype/dejavu/DejaVuSans-Bold.ttf"
+
+# ── Behaviour ─────────────────────────────────────────────────────────────────
+# Full refresh (PVOutput + Sense daily stats + realtime): matches PVOutput's
+# 5-minute upload cadence.
+UPDATE_INTERVAL_SECONDS = 300
+
+# Realtime-only refresh (Sense instantaneous solar + consumption): the display
+# updates every 2 minutes so the live power readings stay current between full
+# refreshes.
+REALTIME_INTERVAL_SECONDS = 120
+
+# Graph x-axis window: earliest hour to show (even if no data yet)
+GRAPH_START_HOUR = 6    # 6 AM
+GRAPH_END_HOUR   = 21   # 9 PM  (clipped to current time while day is ongoing)

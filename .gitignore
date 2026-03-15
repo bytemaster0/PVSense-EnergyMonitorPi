@@ -1,0 +1,12 @@
+# Live credentials — never commit these
+config.py
+
+#Old files
+solarmeter.py
+
+# Runtime files
+cache.json
+preview.png
+*.pyc
+__pycache__/
+*.bak
