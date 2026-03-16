@@ -91,6 +91,15 @@ def load() -> dict:
     # Ensure expected keys exist even if the file is from an older version
     cache.setdefault("pvo",   _empty_pvo())
     cache.setdefault("sense", _empty_sense())
+
+    # JSON stores datetime as ISO strings — restore them so the renderer gets
+    # real datetime objects rather than strings it can't subtract.
+    for interval in cache["pvo"].get("intervals", []):
+        if isinstance(interval.get("time"), str):
+            try:
+                interval["time"] = datetime.fromisoformat(interval["time"])
+            except ValueError:
+                pass
     log.info(
         "Cache loaded (written %s): PVOutput %d Wh, Sense peak %d W",
         cache.get("written_at", "?"),
