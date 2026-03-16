@@ -142,6 +142,9 @@ def run_loop(dry_run: bool, cache: dict) -> None:
         # than anything available from PVOutput or the trends endpoint.
         if realtime.get("valid"):
             data_cache.update_realtime_peak(cache, realtime.get("solar_w", 0))
+            # Sync sense_daily so the renderer sees the new peak immediately
+            # rather than waiting for the next full refresh cycle.
+            sense_daily["peak_w"] = cache["sense"].get("peak_w", 0)
 
         display_renderer.render(
             intervals   = pvo.get("intervals", []),
